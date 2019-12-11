@@ -7,6 +7,7 @@ import Nav from '../components/nav'
 
 // const router = useRouter()
 const Home = () => (
+
   <div>
     <h1>HomePage</h1>
     <h1>

@@ -1,17 +1,21 @@
-import { useRouter } from 'next/router'
-import posts from '../../'
+import posts from '../../posts.json'
 
-
-export default () => {
-    const router = useRouter()
-    const post = posts[router.query.id]
+const Post = props => {
+    console.log('@@@@@@@@')
+    console.log(props.post)
     return (
-        <>
-            <h1>Plog post</h1>
-            <h2> {post.title}</h2>
-            <p>{post.content} </p>
-            <p> </p>
-        </>
-    ) 
 
+        <div>
+            <h1>{props.post.title}</h1>
+            <p>{props.post.content}</p>
+        </div>
+    )
 }
+
+Post.getInitialProps = ({ query }) => {
+    return {
+        post: posts[query.id]
+    }
+}
+
+export default Post
